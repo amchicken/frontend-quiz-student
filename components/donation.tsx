@@ -25,6 +25,12 @@ export default function Donation() {
     return () => clearInterval(interval);
   }, []);
 
+  useEffect(() => {
+    fetch("https://donation-server-production.up.railway.app/donation")
+      .then((res) => res.json())
+      .then((res) => setList(res));
+  }, []);
+
   return (
     <Card withBorder shadow="xs" bg="gray.3">
       <Group mb={20}>
